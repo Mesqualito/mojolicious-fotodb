@@ -13,5 +13,9 @@
 !MANIFEST.SKIP
 /META.*
 /MYMETA.*
+
+# Ignore Intellij Perl5 plugin - de-parsed system subs used for resolution...
+_Deparsed_XSubs.pm
+# and the rest of Intellij chatter...
 .idea/
 *.iml
