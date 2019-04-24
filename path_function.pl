@@ -44,3 +44,51 @@ foreach (@test) {
     print "\$_ is \'$_\'\n";
 }
 
+# ------- Mojolicious again -------
+
+# look at a path
+
+# ["home", "xxx", ".vimrc"]
+$path->to_array;
+
+# "/home/xxx"
+$path->dirname;
+
+# ".vimrc"
+$path->basename;
+
+# manipulate a path
+$path = path('/home/xxx');
+
+# "/home/xxx/.ssh/known_hosts"
+$path->child('.ssh', 'known_hosts');
+
+# "/home/xyz/.bashrc"
+$path->sibling('xyz', '.bashrc');
+
+
+# chain to create directories and files
+
+$path = path('/home/xxx');
+
+$path->child('myapp')->make_path;
+
+$path->child('myapp', 'README.md')->spurt('Hello Mojo!');
+
+
+# list all files in a directory
+
+$path = path('/home/xxx');
+
+for my $file ($path->list_tree->each) {
+    print "list_tree (recursively): $file\n";
+};
+
+for my $file ($path->list->each) {
+    print "list (non-recursively): $file\n";
+};
+
+
+# these methods return collections
+# of mutual file objects (e.g. for one-liners)
+path('/home/xxx')->list->each(sub { print "$_->slurp \n" });
