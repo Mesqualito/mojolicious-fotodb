@@ -1,22 +1,22 @@
-#!/usr/bin/env perl
+# tell Perl that it's a Mojolicious Lite-App
 use Mojolicious::Lite;
 
+# create a route
 get '/' => sub {
-  my $c = shift;
-  $c->render(template => 'index');
-};
+    shift->render('hello');
+    };
+
+# add_type(first_alias => ['fname', 'lname']);
+get '/:fname/:lname' => sub {
+    shift->render('capture');
+    };
 
 app->start;
+
 __DATA__
 
-@@ index.html.ep
-% layout 'default';
-% title 'Welcome';
-<h1>Welcome to the Mojolicious real-time web framework!</h1>
+@@ hello.html.ep
+Hello Mojo!
 
-@@ layouts/default.html.ep
-<!DOCTYPE html>
-<html>
-  <head><title><%= title %></title></head>
-  <body><%= content %></body>
-</html>
+@@ capture.html.ep
+Hello <%= param('fname') %> <%= param('lname') %>!
