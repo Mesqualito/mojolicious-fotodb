@@ -8,15 +8,28 @@ get '/' => sub {
 
 # add_type(first_alias => ['fname', 'lname']);
 get '/:fname/:lname' => sub {
-    shift->render('capture');
+    my $self = shift;
+
+    $self->stash(
+        fname => uc $self->param('fname'),
+        lname => uc $self->param('lname')
+        );
+
+    $self->render('capture');
     };
 
 app->start;
 
 __DATA__
 
+@@ layouts/wrapper.html.ep
+<h2><%= title %></h2>
+<%= content %> To the flying machine!
+
 @@ hello.html.ep
 Hello Mojo!
 
 @@ capture.html.ep
-Hello <%= param('fname') %> <%= param('lname') %>!
+% title 'Planet Express';
+% layout 'wrapper';
+Hello <%= $fname %> <%= $lname %>!
