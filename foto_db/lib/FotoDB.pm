@@ -11,10 +11,12 @@ sub startup {
   # Configure the application
   $self->secrets($config->{secrets});
 
-  # Router
+  # main router object
   my $r = $self->routes;
 
-  # Normal route to controller
+  # route definition to controller
+  # long form:
+  # $r->route('/')->via('GET')->to(controller => 'Example', action => 'welcome')
   $r->get('/')->to('example#welcome');
 }
 
