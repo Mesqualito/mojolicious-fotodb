@@ -1,6 +1,15 @@
+------------- to work: ------------- 
+$ perlbrew info
+$ perlbrew switch perl-5.29.10
+
+------------- to install: ------------- 
 $ perlbrew info
 $ perlbrew install perl-5.29.10
 $ perlbrew switch perl-5.29.10
 $ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
 [...]
 $ morbo hello.pl
+
+------------- to update: ------------- 
+$ mojo version
+$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
