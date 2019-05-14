@@ -1,0 +1,5 @@
+[2019-05-09 10:03:31.88683] [18626] [debug] GET "/jochen/gebsattel" (07f22908)
+[2019-05-09 10:03:31.88845] [18626] [debug] Routing to a callback
+[2019-05-09 10:03:31.88973] [18626] [debug] Rendering template "capture.html.ep" from DATA section
+[2019-05-09 10:03:31.89159] [18626] [debug] Rendering template "layouts/wrapper.html.ep" from DATA section
+[2019-05-09 10:03:31.89326] [18626] [debug] 200 OK (0.006478s, 154.369/s)
