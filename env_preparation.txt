@@ -1,6 +1,0 @@
-$ perlbrew info
-$ perlbrew install perl-5.29.10
-$ perlbrew switch perl-5.29.10
-$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
-[...]
-$ morbo hello.pl
