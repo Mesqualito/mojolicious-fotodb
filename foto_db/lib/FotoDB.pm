@@ -11,13 +11,16 @@ sub startup {
   # Configure the application
   $self->secrets($config->{secrets});
 
-  # main router object
-  my $r = $self->routes;
+  # Router
+    my $r = $self->routes;
 
-  # route definition to controller
-  # long form:
-  # $r->route('/')->via('GET')->to(controller => 'Example', action => 'welcome')
-  $r->get('/')->to('example#welcome');
+  # GET / -> Main::index()
+  # as the index page doesn't require any additional data, we can directly render a template in the route definition
+  # $r->get('/')->to(template => 'main/index');
+
+  # we can also change to route to use a controller to manually render data:
+  # $r->get('/')->to('main#index'); # short
+  $r->get('/')->to(controller => 'Main', action => 'index');
 }
 
 1;
