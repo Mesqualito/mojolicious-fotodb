@@ -68,7 +68,7 @@ sub startup {
     # on POST we delete the post:
     $authorized->post('/delete/:id', [id => qr/\d+/]->name('delete_post_confirmed')->to('Post#delete');
 
-    my $schema = FotoDB::Schema->connect('dbi:SQLite:../../../fotodb.db');
+    my $schema = FotoDB::Schema->connect('dbi:SQLite:share/fotodb-schema.db');
     $self->helper(db => sub { return $schema; });
 }
 
