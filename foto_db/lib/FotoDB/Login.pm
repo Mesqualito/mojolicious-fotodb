@@ -17,10 +17,20 @@ sub on_user_login {
     my $username = $self->param('username');
     my $password = $self->param('password');
 
-    return $self->render(text => 'Logged in!')
-        if (user_exists($username, $password);
+    if (user_exists($username, $password)) {
 
-    return $self->render(text => 'Wrong username/password', status => 403);
+        $self->session(logged_in => 1);
+        $self->session(username => $username);
+
+        $self->redirect_to('restricted_area');
+    } else {
+        $self->render(text => 'Wrong username/password', status => 403);
+    }
+}
+
+sub is_logged_in {
+    return shift->session('logged_in');
+
 }
 
 1;
