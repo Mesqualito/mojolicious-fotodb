@@ -1,0 +1,8 @@
+<h2>FotoDB &mdash; Startseite</h2>
+<p>Willkommen zur FotoDB Anwendung!</p>
+<h3>Foto-Index</h3>
+<p>Keine Fotos vorhanden!</p>
+<hr>
+<p>
+    %= link_to Login => 'login_form'
+</p>
