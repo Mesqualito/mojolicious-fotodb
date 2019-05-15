@@ -29,8 +29,14 @@ sub on_user_login {
 }
 
 sub is_logged_in {
-    return shift->session('logged_in');
+    my $self = shift;
 
+    return 1 if $self->session('logged_in');
+
+    $self->render(
+        inline => "<h2>Forbidden</h2><p>You're not logged in. <a href="#" Go to login page.="login_form"></a></p>",
+    status => 403
+        );
 }
 
 1;
