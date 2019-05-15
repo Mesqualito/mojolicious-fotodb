@@ -1,6 +1,6 @@
 package FotoDB;
 use Mojo::Base 'Mojolicious';
-use FotoDB::Schema;
+# use FotoDB::Schema;
 
 # This method will run once at server start
 sub startup {
