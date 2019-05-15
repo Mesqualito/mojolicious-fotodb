@@ -1,7 +1,23 @@
 <h2>FotoDB &mdash; Startseite</h2>
 <p>Willkommen zur FotoDB Anwendung!</p>
-<h3>Foto-Index</h3>
-<p>Keine Fotos vorhanden!</p>
+<h3>Post Index</h3>
+
+% my $posts = db->resultset('Post');
+% if ($posts->count == 0) {
+    <p>None</p>
+%}
+
+% while (my $post = $posts->next) {
+    <div class="post">
+        <h4>
+            <%= $post->title %>
+            <br />
+            <small>(published: <%= $post->date_published %>)</small>
+        </h4>
+        <p><%= $post->content %></p>
+    </div>
+%}
+
 <hr>
 <p>
     %= link_to Login => 'login_form'
