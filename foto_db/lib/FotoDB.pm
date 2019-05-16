@@ -1,6 +1,12 @@
 package FotoDB;
 use Mojo::Base 'Mojolicious';
-# use FotoDB::Schema;
+BEGIN {
+    my $dir = "/home/jhassfurter/IdeaProjects/mojolicious-fotodb/foto_db";
+    chdir $dir or die "Can't chdir to $dir: $!\n";
+    # safe now
+    push @INC, ['.'];
+}
+use FotoDB::Schema;
 
 # This method will run once at server start
 sub startup {
