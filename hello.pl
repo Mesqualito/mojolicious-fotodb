@@ -1,8 +1,5 @@
 use Mojolicious::Lite;
 
-get '/' => {text => 'Hello World!'} => sub {
-	my $c = shift;
-	$c->render;
-};
+get '/' => {text => 'Hello World!'};
 
 app->start;
