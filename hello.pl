@@ -1,5 +1,9 @@
 use Mojolicious::Lite;
 
-get '/' => {text => 'Hello World!'};
+get '/:name' => {name => '🌍 world!'} => sub {
+	my $c = shift;
+	my $name = $c->stash('name');
+	$c->stash(text => "Hello $name!")
+};
 
 app->start;
