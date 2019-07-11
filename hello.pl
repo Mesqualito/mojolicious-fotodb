@@ -2,7 +2,12 @@ use Mojolicious::Lite;
 
 get '/:name' => {name => '🌍 world!'} => sub {
 	my $c = shift;
-	$c->stash(inline => 'Hello <%= $name %>');
+	$c->render('hello');
 };
 
 app->start;
+
+__DATA__
+
+@@ hello.html.ep
+Hello <%= $name %>
