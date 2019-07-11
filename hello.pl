@@ -1,8 +1,7 @@
 use Mojolicious::Lite;
 
-get '/' => sub {
+get '/' => {text => 'Hello World!'} => sub {
 	my $c = shift;
-	$c->stash(text => 'Hello 🌍 World!');
 	$c->render;
 };
 
